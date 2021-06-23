@@ -7,6 +7,7 @@ import createProduct from "../components/admin/product/createProduct";
 import viewProduct from "../components/admin/product/viewProduct";
 import uploadProductImages from "../components/admin/product/uploadProductImages";
 import assignCategoriesToProduct from "../components/admin/product/assignCategoriesToProduct";
+
 const routes = [
     {
         path: '/',

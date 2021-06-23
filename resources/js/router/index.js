@@ -20,7 +20,6 @@ router.beforeEach((to, from, next) => {
         return
     } else {
         if (to.matched.some(record => record.meta.auth) && user.user.role === to.matched[0].meta.role && loggedIn){
-            console.log("hello");
             if (to.matched[0].path === "" && user.user.role === 'U') {
                 next('/')
                 return
@@ -34,7 +33,6 @@ router.beforeEach((to, from, next) => {
             next()
             return
         } else if(to.matched.some(record => record.meta.auth) && user.user.role !== to.matched[0].meta.role && loggedIn){
-            console.log("Else")
             if (user.user.role === 'U') {
                 next('/')
                 return

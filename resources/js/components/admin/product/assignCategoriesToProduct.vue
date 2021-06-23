@@ -1,10 +1,11 @@
 <template>
-    <div>Assign categories</div>
+    <div>Hello</div>
 </template>
 
 <script>
 export default {
-    name: "assignCategoriesToProduct"
+    name: "assignCategoriesToProduct",
+
 }
 </script>
 

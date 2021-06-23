@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StateController;
 use Illuminate\Http\Request;
@@ -49,4 +50,10 @@ Route::middleware("auth:sanctum")->group(function () {
         Route::post('/updateProductData', [ProductController::class, 'updateProductData']);
         Route::delete('/deleteProductData/{id}', [ProductController::class, 'destroy']);
     });
+
+    Route::prefix("/product-images")->group(function () {
+        Route::post('/upload-product-images', [ProductImagesController::class, 'store']);
+    });
+
+
 });

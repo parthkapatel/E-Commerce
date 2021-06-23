@@ -35,7 +35,32 @@ class ProductImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => "required",
+            'image_path' => "required",
+        ]);
+
+        //dd($request->image_path);
+        foreach ($request->image_path as $val){
+            dd($val);
+        }
+        if($request->file()) {
+            $file_name = time() . '_' . $request->image_path->getClientOriginalName();
+            $file_upload = $request->file('image_path')->move('assets/img/products/', $file_name);
+            $file_path = "/assets/img/products/" . $file_name;
+           // return $this->movieDetails->save($request, $file_path);
+            dd($file_name);
+        }
+
+        //$res = $this->productRepo->save($data);
+        /*if($res == "success") {
+            return json_encode(["status" => "success", "message" => "Product Data Inserted"]);
+        }else if ($res == "product") {
+            return json_encode(["status" => "error", "message" => "Product already exists"]);
+        }
+        else if($res == "error"){
+            return json_encode(["status" => "error", "message" => "Something is wrong"]);
+        }*/
     }
 
     /**
